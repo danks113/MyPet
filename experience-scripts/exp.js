@@ -33,10 +33,10 @@ function calculate(exp) {
             exp -= 17;
         }
         else if (level < 31) {
-            exp -= 17 + ((level - 15) * 3);
+            exp -= 17 + ((level - 15) * 10);
         }
         else {
-            exp -= 17 + ((level - 30) * 7);
+            exp -= 17 + ((level - 30) * 10);
         }
         if(exp >= 0) {
             level++;
@@ -46,10 +46,10 @@ function calculate(exp) {
                 currentExp = exp + 17;
             }
             else if(level < 31) {
-                currentExp = exp + 17 + (level - 15) * 3;
+                currentExp = exp + 17 + (level - 15) * 10;
             }
             else {
-                currentExp = exp + 62 + (level - 30) * 7;
+                currentExp = exp + 62 + (level - 30) * 10;
             }
         }
     }
@@ -58,10 +58,10 @@ function calculate(exp) {
         requiredExp = 17;
     }
     else if(level < 31) {
-        requiredExp = 17 + (level - 14) * 3;
+        requiredExp = 17 + (level - 14) * 10;
     }
     else {
-        requiredExp = 62 + (level - 29) * 7;
+        requiredExp = 62 + (level - 29) * 10;
     }
     return new Array(level, requiredExp, currentExp);
 }
@@ -86,11 +86,11 @@ function getExpByLevel(level, mypet) {
     if(level <= 1) {
         return 0;
     }
-    if(level > 31) {
+    if(level > 29) {
         var exp = 887;
-        level -= 31;
+        level -= 30;
         for(var i=1;i<level;i++) {
-            exp += 62 + (i*7);
+            exp += 62 + (i*10);
         }
         return exp;
     }
@@ -98,7 +98,7 @@ function getExpByLevel(level, mypet) {
         var exp = 272;
         level -= 17;
         for(var i=1;i<=level;i++) {
-            exp += 17 + (i*3);
+            exp += 17 + (i*10);
         }
         return exp;
     }
